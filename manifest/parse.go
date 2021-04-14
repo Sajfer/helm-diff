@@ -135,7 +135,7 @@ func parseContent(content string, defaultNamespace string, normalizeManifests bo
 
 	if parsedMetadata.Kind == "List" {
 		type ListV1 struct {
-			Items []yaml.MapSlice `yaml:"items"`
+			Items []map[interface{}]interface{} `yaml:"items"`
 		}
 
 		var list ListV1
