@@ -3,7 +3,7 @@
 # Shamelessly copied from https://github.com/technosophos/helm-template
 
 PROJECT_NAME="helm-diff"
-PROJECT_GH="databus23/$PROJECT_NAME"
+PROJECT_GH="sajfer/$PROJECT_NAME"
 export GREP_COLOR="never"
 
 HELM_MAJOR_VERSION=$("${HELM_BIN}" version --client --short | awk -F '.' '{print $1}')
@@ -114,7 +114,7 @@ fail_trap() {
   result=$?
   if [ "$result" != "0" ]; then
     echo "Failed to install $PROJECT_NAME"
-    printf '\tFor support, go to https://github.com/databus23/helm-diff.\n'
+    printf '\tFor support, go to https://github.com/sajfer/helm-diff.\n'
   fi
   exit $result
 }
