@@ -46,6 +46,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     needs: [build]
     runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container }}
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
@@ -60,6 +61,10 @@ jobs:
           - os: windows-latest
             shell: cygwin
             experimental: true
+          - os: ubuntu-latest
+            container: alpine
+            shell: bash
+            experimental: false
     steps:
       - name: Disable autocrlf
         if: "contains(matrix.os, 'windows-latest')"
